@@ -12,6 +12,8 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    const {setAuth} = useAuth();;
+
     const handleSubmit = async e => {
         e.preventDefault();
         if ([email,password].includes('')) {
@@ -20,6 +22,7 @@ const Login = () => {
         }
         try {
             const {data} = await clienteAxios.post('veterinarios/login',{email,password})
+            setAuth(data)
             localStorage.setItem('token', data.token)
             navigate('/admin')
         } catch (error) {

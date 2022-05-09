@@ -27,7 +27,7 @@ const Registar = () => {
         setAlerta({})
         try {
             const url = `/veterinarios`
-            const respuesta = await clienteAxios.post(url,{nombre: name,email,password})
+            const respuesta = await clienteAxios.post(url,{name,email,password})
             setAlerta({
                 msg: 'Creado Correctamente, revisa tu email',
                 error:false
